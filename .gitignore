@@ -1,0 +1,31 @@
+# General IDE files
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# Metals files
+.metals/
+.bloop/
+.bsp/
+
+# sbt files
+target/
+project/target/
+project/metals.sbt
+
+# Logs and temp files
+*.log
+*.tmp
+*.bak
+
+# MacOS files
+.DS_Store
+
+# Scala compile outputs
+*.class
+*.cache
+
+# IntelliJ-specific
+out/
