@@ -30,8 +30,8 @@ class EmailClickTracker(bits: Int = 16) {
   def recordClick(emailClick: EmailClickEvent): Unit = {
     // Truncate the timestamp to the nearest hour
     val bucket = emailClick.timestamp.truncatedTo(ChronoUnit.HOURS)
-    // Hash the email and add it to the HyperLogLog
-    val hashedEmail = hllMonoid.toHLL(emailClick.url.getBytes)
+    // Hash the userId and add it to the HyperLogLog
+    val hashedEmail = hllMonoid.toHLL(emailClick.userId.getBytes)
     // Add the hashed email to the corresponding hour bucket
     val currentHLL = hourlyData.getOrElse(bucket, hllMonoid.zero)
     hourlyData(bucket) = hllMonoid.plus(currentHLL, hashedEmail)
